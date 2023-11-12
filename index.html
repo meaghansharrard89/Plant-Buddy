@@ -9,45 +9,49 @@
 
 <!--nav bar on top -->
 
-	<div id="title">
-		<h2>
-		<div class="content">Plant Buddy</div>
-		<div class="sub header" id="subtitle"></div>
-		</h2>
-	</div>
+<div id="header">
+	<h2>
+		<div class="title">Plant Buddy</div>
+		<!-- <div class="sub header" id="subtitle"></div> -->
+	</h2>
+</div>
+
+<!-- div for all three sections -->
+
+<div class="ui-centered-grid">
 
 <!-- side menu: plant list -->
 
-<div class="side menu">
-<ul class="ui plant list" id="plant-list">
-	<li class="plant-name">Plant names will go here.</li>
-</ul>
+<div class = "four-wide-column" id="first-section">
+	<ul class="ui-plant-list" id="plant-list">
+		<li class="plant-name">Plant names will go here.</li>
+	</ul>
 </div>
 
 <!-- plant info -->
 
-<div class="four wide column">
+<div class="four-wide-column" id="middle-section">
 	<h3>Clicked on plant name goes here</h3>
-	<img 
-		id="poster"
-		src=""
-		ALT="PLANT IMAGE" />
-	<p>Plant description goes here</p>
-</div>
+		<img 
+			id="poster"
+			src="https://www.midwestgroundcovers.com/wp-content/uploads/2021/06/Echinacea_purpurea-1-1024x1024.png"
+			ALT="PLANT IMAGE" />
+		<p>Plant description goes here</p>
 
 <!-- button to add to list -->
-<button class="add-plant">ADD TO LIST</button>
+
+	<button class="add-plant">ADD TO LIST</button>
+</div>
 
 <!-- plant shopping list -->
 
-<div class="four wide column">
-	<div id="title" class="title">
-		<h3>PLANT LIST</h3>
-	</div>
+<div class="four-wide-column" id="last-section">
+	<h3>PLANT LIST</h3>
 		<ul class="shopping-list" id="shopping-list">
-			<li class=added-list>ADDED PLANTS WILL GO HERE</li>
+			<li class=added-list>Added plants will go here</li>
 		</ul>
-	</div>
+</div>
+</div>
 </div>
 
 </body>

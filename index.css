@@ -1,13 +1,38 @@
 body {
     background-color: #eeedbe;
+    color: #2d1010
 }
 
-body {
-    color: #2d1010;
+div {
+    display: block;
 }
 
-#title {
+#header {
     margin-bottom: 20px;
     padding: 5px 0px 5px 15px;
+    text-align: center;
 }
 
+.ui-centered-grid {
+    text-align: center;
+}
+
+#first-section {
+    text-align: left;
+    float: left;
+}
+
+#middle-section {
+    padding: 5px;
+    text-align: center;
+    float: left
+}
+
+#last-section {
+    text-align: right;
+    float: left;
+}
+
+#poster {
+    max-width: 40vw;
+}
