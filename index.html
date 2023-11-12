@@ -3,16 +3,52 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
 
-	<div id="list-panel">
-		<ul id="list">
+<!--nav bar on top -->
 
+	<div id="title">
+		<h2>
+		<div class="content">Plant Buddy</div>
+		<div class="sub header" id="subtitle"></div>
+		</h2>
+	</div>
+
+<!-- side menu: plant list -->
+
+<div class="side menu">
+<ul class="ui plant list" id="plant-list">
+	<li class="plant-name">Plant names will go here.</li>
+</ul>
+</div>
+
+<!-- plant info -->
+
+<div class="four wide column">
+	<h3>Clicked on plant name goes here</h3>
+	<img 
+		id="poster"
+		src=""
+		ALT="PLANT IMAGE" />
+	<p>Plant description goes here</p>
+</div>
+
+<!-- button to add to list -->
+<button class="add-plant">ADD TO LIST</button>
+
+<!-- plant shopping list -->
+
+<div class="four wide column">
+	<div id="title" class="title">
+		<h3>PLANT LIST</h3>
+	</div>
+		<ul class="shopping-list" id="shopping-list">
+			<li class=added-list>ADDED PLANTS WILL GO HERE</li>
 		</ul>
 	</div>
-	<div id="show-panel"></div>
-	<script type="text/javascript" src="./js/index.js"></script>
+</div>
+
 </body>
 </html>
