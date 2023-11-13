@@ -1,4 +1,4 @@
-“Plant Buddy”- Meaghan/Esther
+“Plant Planner”- Meaghan/Esther
 
 Project pitch
 

@@ -1,14 +1,15 @@
 body {
     background-color: #eeedbe;
-    color: #2d1010;
+    color: black;
     background-size: cover;
+    font-family: Didot, sans-serif;
+    letter-spacing: 2px;
     /* background-image: url(''); */
 }
 
-background {
+/* background {
     background-size: 50px;
-
-}
+} */
 
 div {
     display: block;
@@ -20,26 +21,60 @@ div {
     text-align: center;
 }
 
-.ui-centered-grid {
-    text-align: center;
+.container {
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    width: 85vw;
 }
 
 #first-section {
-    text-align: left;
-    float: left;
+    text-align: center;
+    border-radius: 10px;
+    width: 25%;
+    height: 100px;
+    background: #9C7C5F;
+    padding-right: 20px;
 }
 
 #middle-section {
-    padding: 5px;
+    border-radius: 10px;
     text-align: center;
-    float: left
+    width: 35%;
+    height: 100px;
+    background: #9C7C5F;
 }
 
 #last-section {
-    text-align: right;
-    float: left;
+    border-radius: 10px;
+    text-align: center;
+    width: 25%;
+    height: 100px;
+    background: #9C7C5F;
+    padding-right: 10px;
+}
+
+.added-list {
+    text-align: left;
 }
 
 #poster {
-    max-width: 40vw;
+    max-width: 20vw;
 }
+
+.add-plant {
+    /* display: inline-block; */
+    padding: 10px 20px;
+    background-color: #9C7C5F;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Didot, sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .ui-plant-list {
+    list-style: none;
+  }
