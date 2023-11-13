@@ -7,6 +7,10 @@ body {
     /* background-image: url(''); */
 }
 
+.ui-plant-list {
+    list-style: none;
+}
+
 div {
     display: block;
 }
@@ -26,13 +30,14 @@ div {
 }
 
 #first-section {
-    text-align: center;
+    text-align: left;
     border-radius: 10px;
     width: 25%;
     height: auto;
     overflow: hidden;
     background: #9C7C5F;
     padding-right: 20px;
+    padding-left: 20px;
 }
 
 #middle-section {
@@ -77,6 +82,6 @@ div {
     letter-spacing: 2px;
   }
 
-  .ui-plant-list {
+  /* .ui-plant-list {
     list-style: none;
-  }
+  } */

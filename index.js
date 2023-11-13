@@ -10,7 +10,7 @@ fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"A
 
 function loopThroughPlants(plant){
     console.log(plant)
-    plant.data.forEach
+    plant.data.forEach(displayPlantNames)
     // for (let key in plant) {
     //     if (plant.hasOwnProperty(key)) {
     //         displayPlantNames(plant[key]);
@@ -21,7 +21,7 @@ function loopThroughPlants(plant){
 function displayPlantNames(plant){
     const newPlantName = document.createElement('li');
     const plantNames = document.getElementById('first-section')
-    newPlantName.innerHTML = plant.name
+    newPlantName.innerHTML = plant.common_name
     plantNames.append(newPlantName)
 
     newPlantName.addEventListener('click', () => {
