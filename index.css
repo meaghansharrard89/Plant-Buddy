@@ -34,7 +34,8 @@ div {
     text-align: center;
     border-radius: 10px;
     width: 25%;
-    height: 100px;
+    height: auto;
+    overflow: hidden;
     background: #9C7C5F;
     padding-right: 20px;
 }
@@ -43,15 +44,18 @@ div {
     border-radius: 10px;
     text-align: center;
     width: 35%;
-    height: 100px;
+    height: auto;
+    overflow: hidden;
     background: #9C7C5F;
+    padding-bottom: 10px;
 }
 
 #last-section {
     border-radius: 10px;
     text-align: center;
     width: 25%;
-    height: 100px;
+    height: auto;
+    overflow: hidden;
     background: #9C7C5F;
     padding-right: 10px;
 }
@@ -65,9 +69,9 @@ div {
 }
 
 .add-plant {
-    /* display: inline-block; */
     padding: 10px 20px;
-    background-color: #9C7C5F;
+    margin-top: 10px;
+    background-color: #eeedbe;
     color: #000;
     text-decoration: none;
     border-radius: 5px;
