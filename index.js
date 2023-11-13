@@ -1,5 +1,7 @@
 let plantList = []
+const url = 'https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898'
 
+//display first plant
 fetch('https://perenual.com/api/species/details/1?key=sk-84tn654db175ec8652898')
 .then(res => res.json())
 .then(data => {
@@ -8,6 +10,7 @@ fetch('https://perenual.com/api/species/details/1?key=sk-84tn654db175ec8652898')
     displayPlantInfo(plantList)
 })
 
+//fetch all plants
 fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"Access-Control-Allow-Origin": "*",})
 .then(res => res.json())
 .then(data => {
@@ -16,11 +19,12 @@ fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"A
     loopThroughPlants(plantList)
 })
 
+//loops through all plants
 function loopThroughPlants(plant){
-    console.log(plant)
     plant.data.forEach(displayPlantNames)
 }
 
+//displays plant names in the nav bar
 function displayPlantNames(plant){
     const newPlantName = document.createElement('li');
     const plantNames = document.getElementById('first-section')
@@ -34,15 +38,15 @@ function displayPlantNames(plant){
     })
 }
 
+//adds the clicked on plant to the middle div
 function addNewPlant(id){
     fetch(`https://perenual.com/api/species/details/${id}?key=sk-84tn654db175ec8652898`)
     .then(res => res.json())
     .then(data => displayPlantInfo(data))
-    // .then(data => console.log(data))
 }
 
+//displays the plant in the middle div
 function displayPlantInfo(plant){
-    // const plantDisplay = document.getElementById('middle-section')
     const plantName = document.getElementById('plantname')
     const plantDescription = document.getElementById('plantdescription')
     const plantImage = document.getElementById('poster')
@@ -61,11 +65,11 @@ function displayPlantInfo(plant){
     })
 }
 
+//once 'add to list' is clicked, the plant name is added to the shopping list- NOT WORKING
+//if name is clicked, it'll be removed from the shopping list- ERROR MESSAGE    
 function addPlantToShoppingList(plant){
-    // console.log(typeof plant)
     const list = document.getElementById('shopping-list')
     const plantToBuy = document.createElement('li')
-    // for (key in plant) {
     plantToBuy.innerHTML = plant.common_name
     list.append(plantToBuy)
 
@@ -74,5 +78,4 @@ function addPlantToShoppingList(plant){
             e.target.parentNode.removeChild(e.target)
         }
     })
-// }
 }
