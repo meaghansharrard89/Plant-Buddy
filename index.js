@@ -1,19 +1,21 @@
-const url = 'https://trefle.io/api/v1/plants?token=iZ-pudYtvysxEApzNZDk6eTNx42ilkf0B48gnoHXzlc'
 let plantList = []
 
-fetch (url)
+fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"Access-Control-Allow-Origin": "*",})
 .then(res => res.json())
 .then(data => {
+    console.log(data)
     plantList = data;
     loopThroughPlants(plantList)
 })
 
 function loopThroughPlants(plant){
-    for (let key in plant) {
-        if (plant.hasOwnProperty(key)) {
-            displayPlantNames(plant[key]);
-        }
-    }
+    console.log(plant)
+    plant.data.forEach
+    // for (let key in plant) {
+    //     if (plant.hasOwnProperty(key)) {
+    //         displayPlantNames(plant[key]);
+    //     }
+    // }
 }
 
 function displayPlantNames(plant){
