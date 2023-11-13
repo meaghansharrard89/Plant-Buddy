@@ -1,5 +1,13 @@
 let plantList = []
 
+fetch('https://perenual.com/api/species/details/1?key=sk-84tn654db175ec8652898')
+.then(res => res.json())
+.then(data => {
+    console.log(data)
+    plantList = data;
+    displayPlantInfo(plantList)
+})
+
 fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"Access-Control-Allow-Origin": "*",})
 .then(res => res.json())
 .then(data => {
@@ -11,52 +19,60 @@ fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"A
 function loopThroughPlants(plant){
     console.log(plant)
     plant.data.forEach(displayPlantNames)
-    // for (let key in plant) {
-    //     if (plant.hasOwnProperty(key)) {
-    //         displayPlantNames(plant[key]);
-    //     }
-    // }
 }
 
 function displayPlantNames(plant){
     const newPlantName = document.createElement('li');
     const plantNames = document.getElementById('first-section')
     newPlantName.innerHTML = plant.common_name
+    newPlantName.classList.add("plant-name")
     plantNames.append(newPlantName)
 
     newPlantName.addEventListener('click', () => {
+        console.log(plant)
         addNewPlant(plant.id)
     })
 }
 
 function addNewPlant(id){
-    fetch(`${url}/${id}`)
+    fetch(`https://perenual.com/api/species/details/${id}?key=sk-84tn654db175ec8652898`)
     .then(res => res.json())
     .then(data => displayPlantInfo(data))
+    // .then(data => console.log(data))
 }
 
 function displayPlantInfo(plant){
-    const plantDisplay = document.getElementById('middle-section')
-    plantList.innerHTML = `
-    <h3>${plant.name}</h3>
-    <img src=${plant.img} />
-    <p>${plant.description}</p>
-    `
+    // const plantDisplay = document.getElementById('middle-section')
+    const plantName = document.getElementById('plantname')
+    const plantDescription = document.getElementById('plantdescription')
+    const plantImage = document.getElementById('poster')
+    const plantCycle = document.getElementById('plantcycle')
+    const plantWatering = document.getElementById('plantwatering')
+    const plantSunlight = document.getElementById('plantsunlight')
+    plantName.textContent = plant.common_name
+    plantCycle.textContent = `Cycle: ${plant.cycle}`
+    plantWatering.textContent = `Watering: ${plant.watering}`
+    plantSunlight.textContent = `Sunlight: ${plant.sunlight}`
+    plantImage.src = plant.default_image.original_url
 
-    const button = document.querySelector('plant-list')
+    const button = document.getElementById('add-plant')
     button.addEventListener('click', () => {
-        //send plant name to list
-        //addPlantToShoppingList(plant)
+        addPlantToShoppingList(plant)
     })
 }
 
 function addPlantToShoppingList(plant){
+    // console.log(typeof plant)
     const list = document.getElementById('shopping-list')
     const plantToBuy = document.createElement('li')
-    plantToBuy.innerHTML = plant.name
-    list.append(plant)
+    // for (key in plant) {
+    plantToBuy.innerHTML = plant.common_name
+    list.append(plantToBuy)
 
-    plant.addEventListener('click', () => {
-        list.parentNode.removeChild(plantToBuy)
+    list.addEventListener('click', (e) => {
+        if (e.target.tagName === 'LI') {
+            e.target.parentNode.removeChild(e.target)
+        }
     })
+// }
 }

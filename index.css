@@ -7,7 +7,11 @@ body {
     /* background-image: url(''); */
 }
 
-.ui-plant-list {
+.ul-plant-list {
+    list-style: none;
+}
+
+.plant-name {
     list-style: none;
 }
 
@@ -62,13 +66,14 @@ div {
     padding-right: 10px;
 }
 
-.added-list {
+.shopping-list {
     text-align: left;
 }
 
 #poster {
-    max-width: 20vw;
+    max-width: 25vw;
     border-radius: 10px;
+    padding-bottom: 10px;
 }
 
 .add-plant {
@@ -81,7 +86,3 @@ div {
     font-family: Didot, sans-serif;
     letter-spacing: 2px;
   }
-
-  /* .ui-plant-list {
-    list-style: none;
-  } */

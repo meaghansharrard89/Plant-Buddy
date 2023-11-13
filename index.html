@@ -23,7 +23,7 @@
 <!-- side menu: plant list -->
 
 <div class = "four-wide-column" id="first-section">
-	<ul class="ui-plant-list" id="plant-list">
+	<ul class="ul-plant-list" id="plant-list">
 		<li class="plant-name"></li>
 	</ul>
 </div>
@@ -31,16 +31,17 @@
 <!-- plant info -->
 
 <div class="four-wide-column" id="middle-section">
-		<h2>Clicked on plant name goes here</h2>
-		<p>Echinacea purpurea is an upright perennial that branches occasionally.  Plants have fibrous roots and form small colonies from short thick rhizomes. Stems are sturdy and pubescent with leathery oval or lance shaped leaves.  The blades are olive green with scattered teeth and a short winged petiole. Flower heads are borne on long leafless stalks.  Each daisy-like head has 10-20 purplish-pink drooping rays.  The ray florets surround a robust spiny orange cone made of many disc florets.  In bright sunlight, flower heads are sometimes fragrant. Flowering begins in mid-summer and continues for about a month.  Plants occasionally rebloom in autumn.  Prickly clusters of dark achenes form from the disc florets and remain into early winter.</p>
-		<br>
+		<h2 id="plantname">Clicked on plant name goes here</h2>
+		<p id="plantcycle"></p>
+		<p id="plantwatering"></p>
+		<p id="plantsunlight"></p>
 		<img 
 			id="poster"
 			src="https://www.midwestgroundcovers.com/wp-content/uploads/2021/06/Echinacea_purpurea-1-1024x1024.png"
 			ALT="PLANT IMAGE"/>
 		<br>
 <!-- button to add to list -->
-	<button class="add-plant">ADD TO LIST</button>
+	<button id="add-plant">ADD TO LIST</button>
 </div>
 
 <!-- plant shopping list -->
@@ -48,7 +49,6 @@
 <div class="four-wide-column" id="last-section">
 	<h3>TO BUY</h3>
 		<ul class="shopping-list" id="shopping-list">
-			<li class="added-list">Added plants will go here</li>
 		</ul>
 </div>
 </div>
