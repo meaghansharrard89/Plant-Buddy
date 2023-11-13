@@ -1,11 +1,13 @@
 body {
     background-color: #eeedbe;
     color: #2d1010;
-    background-image: url('');
+    background-size: cover;
+    /* background-image: url(''); */
 }
 
-.background-image {
-    max-width: 50vw;
+background {
+    background-size: 50px;
+
 }
 
 div {

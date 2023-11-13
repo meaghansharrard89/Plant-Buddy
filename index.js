@@ -1,4 +1,4 @@
-const url = 'https://perenual.com/docs/api'
+const url = 'https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898'
 let plantList = []
 
 fetch (url)
@@ -9,12 +9,16 @@ fetch (url)
 })
 
 function loopThroughPlants(plant){
-    plant.forEach(plant => displayPlantNames(plant))
+    for (let key in plant) {
+        if (plant.hasOwnProperty(key)) {
+            displayPlantNames(plant[key]);
+        }
+    }
 }
 
 function displayPlantNames(plant){
-    const newPlantName = document.createElement(li);
-    const plantNames = getElementById('first-section')
+    const newPlantName = document.createElement('li');
+    const plantNames = document.getElementById('first-section')
     newPlantName.innerHTML = plant.name
     plantNames.append(newPlantName)
 
@@ -30,14 +34,14 @@ function addNewPlant(id){
 }
 
 function displayPlantInfo(plant){
-    const plantDisplay = getElementById('middle-section')
+    const plantDisplay = document.getElementById('middle-section')
     plantList.innerHTML = `
     <h3>${plant.name}</h3>
     <img src=${plant.img} />
     <p>${plant.description}</p>
     `
 
-    const button = querySelector('plant-list')
+    const button = document.querySelector('plant-list')
     button.addEventListener('click', () => {
         //send plant name to list
         //addPlantToShoppingList(plant)
