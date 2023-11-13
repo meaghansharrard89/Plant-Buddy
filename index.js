@@ -1,7 +1,7 @@
 let plantList = []
 const url = 'https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898'
 
-//display first plant
+//displays first plant
 fetch('https://perenual.com/api/species/details/1?key=sk-84tn654db175ec8652898')
 .then(res => res.json())
 .then(data => {
@@ -10,7 +10,7 @@ fetch('https://perenual.com/api/species/details/1?key=sk-84tn654db175ec8652898')
     displayPlantInfo(plantList)
 })
 
-//fetch all plants
+//fetches all plants
 fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"Access-Control-Allow-Origin": "*",})
 .then(res => res.json())
 .then(data => {
@@ -24,7 +24,7 @@ function loopThroughPlants(plant){
     plant.data.forEach(displayPlantNames)
 }
 
-//displays plant names in the nav bar
+//displays plant names in the left div
 function displayPlantNames(plant){
     const newPlantName = document.createElement('li');
     const plantNames = document.getElementById('first-section')
@@ -38,7 +38,7 @@ function displayPlantNames(plant){
     })
 }
 
-//adds the clicked on plant to the middle div
+//adds the clicked-on plant to the middle div
 function addNewPlant(id){
     fetch(`https://perenual.com/api/species/details/${id}?key=sk-84tn654db175ec8652898`)
     .then(res => res.json())
@@ -65,8 +65,8 @@ function displayPlantInfo(plant){
     })
 }
 
-//once 'add to list' is clicked, the plant name is added to the shopping list- NOT WORKING
-//if name is clicked, it'll be removed from the shopping list- ERROR MESSAGE    
+//once 'add to list' is clicked, the plant name is added to the right div- NOT WORKING
+//if name is clicked, it'll be removed from the right div- ERROR MESSAGE    
 function addPlantToShoppingList(plant){
     const list = document.getElementById('shopping-list')
     const plantToBuy = document.createElement('li')
