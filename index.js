@@ -19,7 +19,6 @@ fetch (url)
 
 //loops through all plants
 function loopThroughPlants(plant){
-    console.log(plant);
     plant.forEach(displayPlantNames)
 }
 
@@ -71,8 +70,8 @@ button.addEventListener('click', () => {
 
 let plantOnShoppingList = []
 
-//once 'add to list' is clicked, the plant name is added to the right div- NOT WORKING
-//if name is clicked, it'll be removed from the right div- ERROR MESSAGE    
+//once 'add to list' is clicked, the plant name is added to the right div
+//if name is clicked, it'll be removed from the right div  
 function addPlantToShoppingList(plant){
     const list = document.getElementById('shopping-list')
 //searches through the array if there is a match
@@ -82,7 +81,6 @@ function addPlantToShoppingList(plant){
 
 //need to make sure this condition doesn't include -1
     if (idx > -1) {
-        console.log(idx)
         alert("This plant has already been added!")
     } else { 
 
@@ -92,7 +90,6 @@ function addPlantToShoppingList(plant){
     plantNumberButton.textContent = 1
     plantNumberButton.style.borderRadius = '3px'
     plantToBuy.innerHTML = plant.common_name
-    
     plantNumberButton.style.marginLeft = '10px'
 
     list.appendChild(plantToBuy)
@@ -101,17 +98,17 @@ function addPlantToShoppingList(plant){
 //deleting the item from the shopping list and in the array
     plantToBuy.addEventListener('click', (e) => {
             e.target.remove()
+//need to clarify what the below code does
             plantOnShoppingList = plantOnShoppingList.filter(p => {
                 return p != plant;
             })
     })
-
+//need to clarify what the below code does
     plantNumberButton.addEventListener('click', (e) => {
         e.stopPropagation()
     let currentNumber = parseInt(plantNumberButton.innerHTML, 10);
         if (!isNaN(currentNumber)) {
             plantNumberButton.innerHTML = currentNumber + 1;
-            console.log('I was clicked')
             }
         })
     }
