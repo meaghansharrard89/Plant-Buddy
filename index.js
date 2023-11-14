@@ -1,7 +1,7 @@
 let plantList = []
 const url = 'https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898'
 
-//displays first plant
+//fetches and displays first plant
 fetch('https://perenual.com/api/species/details/1?key=sk-UTOg6552bdc03db892898')
 .then(res => res.json())
 .then(data => {
@@ -46,8 +46,7 @@ function addNewPlant(id){
 //displays the plant in the middle div
 function displayPlantInfo(plant){
     const plantName = document.getElementById('plantname')
-    const plantDescription = document.getElementById('plantdescription')
-    const plantImage = document.getElementById('poster')
+    const plantImage = document.getElementById('image')
     const plantCycle = document.getElementById('plantcycle')
     const plantWatering = document.getElementById('plantwatering')
     const plantSunlight = document.getElementById('plantsunlight')
@@ -78,7 +77,7 @@ function addPlantToShoppingList(plant){
             return;
         }
     }
-    
+
     list.append(plantToBuy)
     plantToBuy.append(plantNumberButton)
 
