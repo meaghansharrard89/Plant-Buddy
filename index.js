@@ -2,19 +2,17 @@ let plantList = []
 const url = 'https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898'
 
 //displays first plant
-fetch('https://perenual.com/api/species/details/1?key=sk-84tn654db175ec8652898')
+fetch('https://perenual.com/api/species/details/1?key=sk-UTOg6552bdc03db892898')
 .then(res => res.json())
 .then(data => {
-    console.log(data)
     plantList = data;
     displayPlantInfo(plantList)
 })
 
 //fetches all plants
-fetch ('https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898', {"Access-Control-Allow-Origin": "*",})
+fetch ('https://perenual.com/api/species-list?key=sk-UTOg6552bdc03db892898', {"Access-Control-Allow-Origin": "*",})
 .then(res => res.json())
 .then(data => {
-    console.log(data)
     plantList = data;
     loopThroughPlants(plantList)
 })
@@ -40,7 +38,7 @@ function displayPlantNames(plant){
 
 //adds the clicked-on plant to the middle div
 function addNewPlant(id){
-    fetch(`https://perenual.com/api/species/details/${id}?key=sk-84tn654db175ec8652898`)
+    fetch(`https://perenual.com/api/species/details/${id}?sk-UTOg6552bdc03db892898`)
     .then(res => res.json())
     .then(data => displayPlantInfo(data))
 }
@@ -70,12 +68,29 @@ function displayPlantInfo(plant){
 function addPlantToShoppingList(plant){
     const list = document.getElementById('shopping-list')
     const plantToBuy = document.createElement('li')
+    const plantNumberButton = document.getElementById('buymoreplants')
     plantToBuy.innerHTML = plant.common_name
+
+    const listItems = list.getElementsByTagName('li')
+    for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].innerHTML === plant.common_name) {
+            alert("Plant has already been added to the list!");
+            return;
+        }
+    }
+    
     list.append(plantToBuy)
+    plantToBuy.append(plantNumberButton)
 
     list.addEventListener('click', (e) => {
         if (e.target.tagName === 'LI') {
             e.target.parentNode.removeChild(e.target)
         }
     })
+
+    // plantNumberButton.addEventListener('click', (e) => {
+    //     if (plantNumberButton.innerHTML >= 1) {
+    //         plantNumberButton.innerHTML += 1
+    //     }
+    // })
 }

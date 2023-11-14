@@ -13,6 +13,7 @@ body {
 
 .plant-name {
     list-style: none;
+    font-size: 18px;
 }
 
 div {
@@ -71,7 +72,7 @@ div {
 }
 
 #poster {
-    max-width: 25vw;
+    max-width: 20vw;
     border-radius: 10px;
     padding-bottom: 10px;
 }
