@@ -1,8 +1,8 @@
 let plantList = []
-const url = 'https://perenual.com/api/species-list?key=sk-84tn654db175ec8652898'
+const url = 'http://localhost:3000/data'
 
 //fetches and displays first plant
-fetch('https://perenual.com/api/species/details/1?key=sk-UTOg6552bdc03db892898')
+fetch(`${url}/1`)
 .then(res => res.json())
 .then(data => {
     plantList = data;
@@ -10,7 +10,7 @@ fetch('https://perenual.com/api/species/details/1?key=sk-UTOg6552bdc03db892898')
 })
 
 //fetches all plants
-fetch ('https://perenual.com/api/species-list?key=sk-UTOg6552bdc03db892898', {"Access-Control-Allow-Origin": "*",})
+fetch (url)
 .then(res => res.json())
 .then(data => {
     plantList = data;
@@ -19,7 +19,8 @@ fetch ('https://perenual.com/api/species-list?key=sk-UTOg6552bdc03db892898', {"A
 
 //loops through all plants
 function loopThroughPlants(plant){
-    plant.data.forEach(displayPlantNames)
+    console.log(plant);
+    plant.forEach(displayPlantNames)
 }
 
 //displays plant names in the left div
@@ -31,43 +32,55 @@ function displayPlantNames(plant){
     plantNames.append(newPlantName)
 
     newPlantName.addEventListener('click', () => {
-        console.log(plant)
         addNewPlant(plant.id)
     })
 }
 
 //adds the clicked-on plant to the middle div
 function addNewPlant(id){
-    fetch(`https://perenual.com/api/species/details/${id}?sk-UTOg6552bdc03db892898`)
+    fetch(`${url}/${id}`)
     .then(res => res.json())
     .then(data => displayPlantInfo(data))
 }
 
+let displayedPlant;
+
 //displays the plant in the middle div
 function displayPlantInfo(plant){
+    displayedPlant = plant;
     const plantName = document.getElementById('plantname')
     const plantImage = document.getElementById('image')
     const plantCycle = document.getElementById('plantcycle')
     const plantWatering = document.getElementById('plantwatering')
     const plantSunlight = document.getElementById('plantsunlight')
+    const hiddenButton = document.querySelector('.hidden')
+
     plantName.textContent = plant.common_name
     plantCycle.textContent = `Cycle: ${plant.cycle}`
     plantWatering.textContent = `Watering: ${plant.watering}`
     plantSunlight.textContent = `Sunlight: ${plant.sunlight}`
     plantImage.src = plant.default_image.original_url
 
-    const button = document.getElementById('add-plant')
-    button.addEventListener('click', () => {
-        addPlantToShoppingList(plant)
-    })
+    // const button = document.getElementById('add-plant')
+    // button.addEventListener('click', () => {
+    //     addPlantToShoppingList(plant)
+    //     button.classList.remove('hidden')
+    // })
 }
+
+const button = document.getElementById('add-plant')
+button.addEventListener('click', () => {
+    addPlantToShoppingList(displayedPlant)
+    button.classList.remove('hidden')
+})
 
 //once 'add to list' is clicked, the plant name is added to the right div- NOT WORKING
 //if name is clicked, it'll be removed from the right div- ERROR MESSAGE    
 function addPlantToShoppingList(plant){
     const list = document.getElementById('shopping-list')
     const plantToBuy = document.createElement('li')
-    const plantNumberButton = document.getElementById('buymoreplants')
+    const plantNumberButton = document.createElement('button')
+    plantNumberButton.textContent = 1
     plantToBuy.innerHTML = plant.common_name
 
     const listItems = list.getElementsByTagName('li')
@@ -82,16 +95,15 @@ function addPlantToShoppingList(plant){
     list.appendChild(plantToBuy)
     plantToBuy.append(plantNumberButton)
 
-    list.addEventListener('click', (e) => {
-        if (e.target.tagName === 'LI') {
-            e.target.parentNode.removeChild(e.target)
-        }
+    plantToBuy.addEventListener('click', (e) => {
+            e.target.remove()
     })
 
     plantNumberButton.addEventListener('click', (e) => {
     let currentNumber = parseInt(plantNumberButton.innerHTML, 10);
         if (!isNaN(currentNumber)) {
             plantNumberButton.innerHTML = currentNumber + 1;
+            console.log('I was clicked')
             }
         })
-    } 
+    }

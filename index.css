@@ -4,7 +4,6 @@ body {
     background-size: cover;
     font-family: Didot, sans-serif;
     letter-spacing: 2px;
-    /* background-image: url(''); */
 }
 
 .ul-plant-list {
@@ -86,4 +85,14 @@ div {
     border-radius: 5px;
     font-family: Didot, sans-serif;
     letter-spacing: 2px;
+  }
+
+  /* .buymoreplants {
+    need to round the button and make it look better
+  } */
+
+  /* /*add an arrow icon for the mouse when using the page */
+
+  .hidden {
+    display: none;
   }
