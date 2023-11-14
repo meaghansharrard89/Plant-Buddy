@@ -60,12 +60,6 @@ function displayPlantInfo(plant){
     plantWatering.textContent = `Watering: ${plant.watering}`
     plantSunlight.textContent = `Sunlight: ${plant.sunlight}`
     plantImage.src = plant.default_image.original_url
-
-    // const button = document.getElementById('add-plant')
-    // button.addEventListener('click', () => {
-    //     addPlantToShoppingList(plant)
-    //     button.classList.remove('hidden')
-    // })
 }
 
 const button = document.getElementById('add-plant')
@@ -74,36 +68,47 @@ button.addEventListener('click', () => {
     button.classList.remove('hidden')
 })
 
+let plantOnShoppingList = []
+
 //once 'add to list' is clicked, the plant name is added to the right div- NOT WORKING
 //if name is clicked, it'll be removed from the right div- ERROR MESSAGE    
 function addPlantToShoppingList(plant){
     const list = document.getElementById('shopping-list')
+//searches through the array if there is a match
+//if true, it'll be the index of the element it finds
+//if false, it'll be -1
+    let idx = plantOnShoppingList.indexOf(plant)
+
+//need to make sure this condition doesn't include -1
+    if (idx > -1) {
+        console.log(idx)
+        alert("This plant has already been added!")
+    } else { 
+
+    plantOnShoppingList.push(plant)
     const plantToBuy = document.createElement('li')
     const plantNumberButton = document.createElement('button')
     plantNumberButton.textContent = 1
     plantToBuy.innerHTML = plant.common_name
 
-    const listItems = list.getElementsByTagName('li')
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].innerHTML === plant.common_name) {
-            alert("Plant has already been added to the list!");
-            return;
-        }
-    }
-
-    //tried changing to appendChild- will see if this works
     list.appendChild(plantToBuy)
     plantToBuy.append(plantNumberButton)
 
+//deleting the item from the shopping list and in the array
     plantToBuy.addEventListener('click', (e) => {
             e.target.remove()
+            plantOnShoppingList = plantOnShoppingList.filter(p => {
+                return p != plant;
+            })
     })
 
     plantNumberButton.addEventListener('click', (e) => {
+        e.stopPropagation()
     let currentNumber = parseInt(plantNumberButton.innerHTML, 10);
         if (!isNaN(currentNumber)) {
             plantNumberButton.innerHTML = currentNumber + 1;
             console.log('I was clicked')
             }
         })
+    }
     }
