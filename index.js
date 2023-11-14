@@ -78,7 +78,8 @@ function addPlantToShoppingList(plant){
         }
     }
 
-    list.append(plantToBuy)
+    //tried changing to appendChild- will see if this works
+    list.appendChild(plantToBuy)
     plantToBuy.append(plantNumberButton)
 
     list.addEventListener('click', (e) => {
@@ -87,9 +88,10 @@ function addPlantToShoppingList(plant){
         }
     })
 
-    // plantNumberButton.addEventListener('click', (e) => {
-    //     if (plantNumberButton.innerHTML >= 1) {
-    //         plantNumberButton.innerHTML += 1
-    //     }
-    // })
-}
+    plantNumberButton.addEventListener('click', (e) => {
+    let currentNumber = parseInt(plantNumberButton.innerHTML, 10);
+        if (!isNaN(currentNumber)) {
+            plantNumberButton.innerHTML = currentNumber + 1;
+            }
+        })
+    } 
