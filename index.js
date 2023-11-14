@@ -53,7 +53,6 @@ function displayPlantInfo(plant){
     const plantCycle = document.getElementById('plantcycle')
     const plantWatering = document.getElementById('plantwatering')
     const plantSunlight = document.getElementById('plantsunlight')
-    const hiddenButton = document.querySelector('.hidden')
 
     plantName.textContent = plant.common_name
     plantCycle.textContent = `Cycle: ${plant.cycle}`
@@ -63,9 +62,11 @@ function displayPlantInfo(plant){
 }
 
 const button = document.getElementById('add-plant')
+button.style.width = '100px'
+button.style.height = '40px'
+button.style.borderRadius = '5px'
 button.addEventListener('click', () => {
     addPlantToShoppingList(displayedPlant)
-    button.classList.remove('hidden')
 })
 
 let plantOnShoppingList = []
@@ -89,7 +90,10 @@ function addPlantToShoppingList(plant){
     const plantToBuy = document.createElement('li')
     const plantNumberButton = document.createElement('button')
     plantNumberButton.textContent = 1
+    plantNumberButton.style.borderRadius = '3px'
     plantToBuy.innerHTML = plant.common_name
+    
+    plantNumberButton.style.marginLeft = '10px'
 
     list.appendChild(plantToBuy)
     plantToBuy.append(plantNumberButton)
