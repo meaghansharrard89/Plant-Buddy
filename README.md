@@ -1,5 +1,7 @@
 “Plant Planner”- Meaghan/Esther
 
+https://meaghansharrard89.github.io/Plant-Planner/
+
 Project pitch
 
 This project will be a list of specific plants/associated information pulled in from a public API, and clicking the plant name will bring up the plant image/plant information on the main part of the page. If you decide you want to buy this plant, you’ll select “Add to list” to add it to your shopping list. Clicking the plant name on the list will also remove it from the list.
